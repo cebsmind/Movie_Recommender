@@ -1,0 +1,4 @@
+runtime: python310  # Choose the appropriate Python version
+
+entrypoint: gunicorn -b :$PORT app:main  # Use Gunicorn as the WSGI server
+
