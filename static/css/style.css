@@ -1,0 +1,66 @@
+/* style.css */
+
+/* Remove conflicting styles */
+.bg-light {
+    background-color: #000000 !important;
+}
+
+body {
+    font-family: 'DM Serif Display', serif;
+    background-color: #ffffff;
+    color: #ffffffd8;
+}
+
+.container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #39265c70;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+header h1, main h2 {
+    color: #e8e6e9;
+}
+
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button.btn-custom {
+    background-color: #080808c0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #495057;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #495057;
+}
+
+/* Override list item styles */
+ul.list-group li {
+    color: #28a745 !important;
+}
+
+/* Override footer text styles */
+footer p {
+    color: #ffffffc7;
+    font-size: 14px;
+}

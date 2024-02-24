@@ -1,0 +1,36 @@
+/* static/css/rain.css */
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #030303; /* Dark background color */
+}
+
+.rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999; /* Ensure it's above other elements */
+}
+
+.rain-drop {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(rgba(255, 255, 255, 0.205), rgba(84, 17, 122, 0.904));
+    box-shadow: 0 0 10px rgba(108, 7, 202, 0.89);
+    position: absolute;
+    animation: rain-animation 0.8s linear infinite;
+}
+
+@keyframes rain-animation {
+    from {
+        transform: translateY(-100vh);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
