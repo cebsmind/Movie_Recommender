@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Include Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Include jQuery UI Autocomplete -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Include Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Include your custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Include rainy animation styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rain.css') }}">
+
+    <!-- Include rainy animation script -->
+    <script src="{{ url_for('static', filename='js/rain.js') }}"></script>
+
+    <!-- Your existing JavaScript for Autocomplete -->
+    <script>
+        $(function () {
+            $("#movie_title").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/autocomplete',
+                        data: { partial_title: request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 2
+            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                return $("<li>")
+                    .append("<a>" + item.label + "</a>")
+                    .appendTo(ul);
+            };
+
+            $("#movie_title").autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li>")
+                    .append("<a>" + item.label + "</a>")
+                    .appendTo(ul)
+                    .on("click", function (event) {
+                        event.preventDefault();
+                        $("#movie_title").val(item.label);
+                    });
+            };
+        });
+    </script>
+</head>
+<body class="bg-light">
+    <!-- Rainy animation container -->
+    <div class="rain-container">
+        <div class="rain"></div>
+    </div>
+
+    <header class="container mt-4 text-center">
+        <h1 class="mb-4">Movie Recommender</h1>
+    </header>
+
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <form method="post" class="col-md-6">
+                <label for="movie_title" class="form-label">Enter a movie title:</label>
+                <div class="input-group mb-3">
+                    <input type="text" id="movie_title" name="movie_title" class="form-control" required>
+                </div>
+                <div class="text-center">
+                    <button type="button" id="recommendButton" class="btn btn-custom mt-2">Get Recommendations</button>
+                </div>
+            </form>
+        </div>
+
+        {% if movie_title %}
+            <h2 class="mt-4 text-center">Top 10 Recommendations for {{ movie_title }}:</h2>
+            <ul class="list-group">
+                {% for movie in recommendations %}
+                    <li class="list-group-item">{{ movie }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Hidden fields to store selected values -->
+        <form method="post" id="hiddenForm" action="/">
+            <input type="hidden" name="movie_title" id="movie_title_hidden" value="">
+            <input type="hidden" name="recommendations" id="recommendations_hidden" value="">
+        </form>
+    </main>
+
+    <footer class="container mt-4 text-center">
+        <p>© 2024 Movie Recommender by Cebrail</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $("#recommendButton").click(function() {
+                $("#movie_title_hidden").val($("#movie_title").val());
+                $("#recommendations_hidden").val("");
+                $("#hiddenForm").submit();
+            });
+        });
+    </script>
+</body>
+</html>
