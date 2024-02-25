@@ -24,17 +24,21 @@ For this project, I decied to go with a simple approach with basic informations 
 ### All theses informations will be used to build our model. But before that we need to treat all theses variables and pre-process it
 ## 2. Pre-processing
 Pre processing is an important step to build an accurate model. 
-In our case, we need to harmonize categorical variables so we can merge them into one variable, that we name "tags".
+In our case, it implies :
+- Transform variables
+- Clean text variables
+- Impute missing values
+- Use NLP techniques to prepare our text variables
+
+ #### I decided to merge all ouf our clean texts variables into one, named "tag" 
+ ```python
+# Create a "tags" variable that combine every text variable we need
 movies['tags'] = movies['overview'] + movies['genres'] + movies['keywords'] + movies['cast'] + movies['crew']
-For our numerical variables "vote_average" and "popularity", we'll deal with it after.
-## Example Output from Notebook
+```
 
-Explanation of the code or analysis.
 
-```python
-# Your code here
-result = some_function()
-print(result)
+
+
 
 
 
