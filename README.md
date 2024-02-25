@@ -18,6 +18,11 @@ About the data set :
 ## 1. Variables 
 In this project, I opted for a straightforward approach, focusing on fundamental movie details:
 
+# Deploy App
+To use my app, you need to
+- Download the Kaggle Data set
+- Run my Notebooks to get the 
+
 - **id** : Unique ID of the movie
 - **original_title**: Title
 - **overview**: Synopsis of the movie
