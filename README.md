@@ -168,7 +168,7 @@ This function efficiently calculates the cosine similarity of a specified movie 
 ### To run the app you need 
 - Download Kaggle Data Set
 - Run my Notebooks to get the `movie_cosine_similarity_model.pkl`
-- Set up folders : Below is the suggested folder structure for organizing your Flask app:
+- Set up folders : Below is the suggested folder structure for organizing your Flask app
 
 ```plaintext
 flask-app/
