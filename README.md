@@ -1,12 +1,13 @@
 # PROJECT : Movie Recommendation System
 The goal of this project is to create a Movie Recommendation System using content-based filtering & build an app with **Flask**
 
-# App preview
-![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/MainPage.png?raw=true)
-
 ## How it works ? 
 Content-based filtering uses item features to recommend other items similar to what the user likes, based on their previous actions or explicit feedback
 ![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/ContentBasedFiltering.png?raw=true)
+
+# App preview
+![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/MainPage.png?raw=true)
+
 # Data set Information :
 ### [Data Link from Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
 About the data set : 
