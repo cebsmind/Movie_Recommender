@@ -1,0 +1,33 @@
+# Virtual environment
+envmovies/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local development settings
+.envmovies
+
+# IDE files
+.idea/
+.vscode/
+
+# Compiled Python files
+*.pyc
+
+# Dependency management
+pip-*.log
+
+# Flask-related files
+instance/
+
+# GCP-specific files
+*.pem
+*.json
+*.key
+
+# OS-specific files
+.DS_Store
+Thumbs.db
