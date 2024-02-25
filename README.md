@@ -1,9 +1,8 @@
 # PROJECT : Movie Recommendation System
-The goal of this project is to create a Movie Recommendation System using content-based filtering & Develop an app using our model
+The goal of this project is to create a Movie Recommendation System using content-based filtering & build an app using our model using Flask
 
-# Preview
+# App preview
 ![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/MainPage.png?raw=true)
-
 
 ## How it works ? 
 Content-based filtering uses item features to recommend other items similar to what the user likes, based on their previous actions or explicit feedback
@@ -27,20 +26,23 @@ For this project, I decied to go with a simple approach with basic informations 
 - **vote_average**: Numerical variable (from 1 to 5)
 - **popularity**: Popularity of the movie
 ### All theses informations will be used to build our model. But before that we need to treat all theses variables and pre-process it
-## 2. Pre-processing
-Pre processing is an important step to build an accurate model. 
+## 2. Data Pre-processing
+Effective model building relies on thorough pre-processing to enhance accuracy. In our context, this involves:
 In our case, it implies :
-- Transform variables
-- Clean text variables
-- Impute missing values
-- Use NLP techniques to prepare our text variables
+- **Transforming Variables:** Adjusting variables to better suit model requirements.
+- **Cleaning Text Variables:** Ensuring text data is free from noise and inconsistencies.
+- **Imputing Missing Values:** Addressing any gaps in the dataset.
+- **Utilizing NLP Techniques:** Employing Natural Language Processing techniques to prepare text data.
 
- #### I decided to merge all ouf our clean texts variables into one, named "tag" 
+ ### Combining Text Variables
+To streamline our analysis, I've chosen to merge all cleaned text variables into a unified one called "tags." This consolidation is performed as follows:
+
  ```python
 # Create a "tags" variable that combine every text variable we need
 movies['tags'] = movies['overview'] + movies['genres'] + movies['keywords'] + movies['cast'] + movies['crew']
 ```
-We will deal with both numerical variable after
+Handling numerical variables will be addressed subsequently in our process.
+
 ## 3. Word Embedding
 ### What is word embedding ? 
 - Word Embeddings in NLP is a technique where individual words are represented as real-valued vectors in a lower-dimensional space and captures inter-word semantics. Each word is represented by a real-valued vector with tens or hundreds of dimensions
