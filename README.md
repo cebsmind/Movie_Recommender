@@ -60,14 +60,20 @@ For each token, we checks if it is present in the pre-trained GloVe model. If th
 ### 3. Aggregation - Mean Calculation:
 After collecting all the word vectors for the tokens present in the GloVe model, the code calculates the mean (average) of these vectors. This mean vector serves as a representation of the entire text in the "tags" variable.
 
-In the end, we get a numpy array of dimension (46628, 200) 
-- **46628** is the number of movies (assuming that each movie has a corresponding "tags").
-- **200** is the dimensionality of the word vectors in your pre-trained GloVe model.
+Upon completion, we obtain a numpy array with dimensions (46628, 200):
 
-### Add numeric variable
-After we finally have vectorized our "tags" variable, we can add our numerical variables ('vote_average' and 'popularity'). But before we need to Normalize it : 
-The features 'vote_average' and 'popularity' are being normalized using Min-Max scaling. Min-Max scaling transforms the values of a feature to a range between 0 and 1, based on the minimum and maximum values of that feature in the dataset. The MinMaxScaler is used for this purpose.
-#### The final shape will be (46628, 202)
+- **46628:** Represents the number of movies, assuming each movie has a corresponding "tags" entry.
+- **200:** Signifies the dimensionality of the word vectors in our pre-trained GloVe model.
+### Incorporating Numeric Variables
+After vectorizing our "tags" variable, we proceed to augment our feature set by introducing numeric variables (**'vote_average'** and **'popularity'**). However, an essential preprocessing step precedes this:
+
+**Normalization**
+The features 'vote_average' and 'popularity' undergo normalization using Min-Max scaling. This transformation adjusts the values of a feature to a standardized range between 0 and 1, determined by the minimum and maximum values within the dataset. The MinMaxScaler is employed for this purpose.
+
+Upon completion of this process, our feature matrix attains a final shape of (46628, 202). This combined feature set incorporates both the vectorized "tags" variable and the normalized numeric variables, creating a comprehensive representation for each movie in the dataset.
+
+
+
 
 ## 2.B Basic example to understand Word Embedding using Glove Pre-trained model : 
 Let's go through a simple example to illustrate how the GloVe model works. Suppose we have the following preprocessed and tokenized text:
