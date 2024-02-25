@@ -187,7 +187,7 @@ flask-app/
 │      ├── index.html
 │      └── recommendations.html
 │
-├── app.py
+├── main.py
 ├── requirements.txt
 ├── .gitignore.txt
 ├── .gcloudignore
