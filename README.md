@@ -51,7 +51,50 @@ For each token, we checks if it is present in the pre-trained GloVe model. If th
 ### 3. Aggregation - Mean Calculation:
 After collecting all the word vectors for the tokens present in the GloVe model, the code calculates the mean (average) of these vectors. This mean vector serves as a representation of the entire text in the "tags" variable.
 
-**Summary :** In our specific case, we're going through each token (word) in the variable "tags." For each word, it looks up the corresponding word vector in the pre-trained GloVe model. These word vectors are then collected into a list. Finally, the mean (average) of all these word vectors is calculated, creating a single vector representation (embedding of 200 dimensions) that captures the semantic content of the entire text in the "tags" variable.
+### Basic example to understand : 
+Let's go through a simple example to illustrate how the GloVe model works. Suppose we have the following preprocessed and tokenized text:
+
+```python
+tokens = ["movie", "action", "thrilling", "plot", "characters"]
+```
+
+Now, let's assume we have a simplified GloVe model where word vectors are 3-dimensional (for simplicity):
+
+```python
+glove_model = {
+    "movie": [0.1, 0.2, 0.3],
+    "action": [0.4, 0.5, 0.6],
+    "thrilling": [0.7, 0.8, 0.9],
+    "plot": [0.2, 0.3, 0.4],
+    "characters": [0.5, 0.6, 0.7]
+}
+```
+In a real-world scenario, the vectors would be much larger (e.g., 50, 100, 200 dimensions), but we are simplifying for this example.
+
+Now, let's apply the GloVe model to our tokens list:
+```python
+word_vectors = [glove_model[word] for word in tokens if word in glove_model]
+```
+For our example, this would result in:
+
+```python
+word_vectors = [
+    [0.1, 0.2, 0.3],  # "movie"
+    [0.4, 0.5, 0.6],  # "action"
+    [0.7, 0.8, 0.9],  # "thrilling"
+    [0.2, 0.3, 0.4],  # "plot"
+    [0.5, 0.6, 0.7]   # "characters"
+]
+```
+Now, let's calculate the mean of these vectors:
+```python
+doc_vector = np.mean(word_vectors, axis=0)
+```
+In our simplified example, the mean vector would be:
+
+```python
+doc_vector = [0.38, 0.48, 0.58]
+```
 
 In the end, we get a numpy array of dimension (46628, 200) 
 - **46628** is the number of movies (assuming that each movie has a corresponding "tags").
