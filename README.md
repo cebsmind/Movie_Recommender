@@ -42,13 +42,13 @@ We will deal with both numerical variable after
 ![image](https://github.com/cebsmind/Movie_Recommender/assets/154905924/d9bf3625-149d-4139-81d1-e817bd568042)
 For our case, we decided to use a pre-trained GloVe (Global Vectors for Word Representation) model. GloVe is an unsupervised learning algorithm that generates word embeddings based on the co-occurrence statistics of words in a large corpus. The model we loaded has 200-dimensional word vectors.
 
-##What we did ? 
+## What we did ? 
 Let's break it down step by step:
 ### 1. Tokenization and Preprocessing:
-Your text in the "tags" variable is tokenized, and common preprocessing steps like lowercasing and lemmatization are applied to each token.
+Our text in the "tags" variable is tokenized, and common preprocessing steps like lowercasing and lemmatization are applied to each token.
 ### 2. Word Vector Lookup:
-For each token, the code checks if it is present in the pre-trained GloVe model (if word in model). If the word is in the model, its corresponding word vector is retrieved (model[word]), and this vector is added to a list (word_vectors).
+For each token, we checks if it is present in the pre-trained GloVe model. If the word is in the model, its corresponding word vector is retrieved, and this vector is added to a list..
 ### 3. Aggregation - Mean Calculation:
-After collecting all the word vectors for the tokens present in the GloVe model, the code calculates the mean (average) of these vectors. This mean vector (doc_vector) serves as a representation of the entire text in the "tags" variable.
+After collecting all the word vectors for the tokens present in the GloVe model, the code calculates the mean (average) of these vectors. This mean vector serves as a representation of the entire text in the "tags" variable.
 
 In our specific case, we're going through each token (word) in the variable "tags." For each word, it looks up the corresponding word vector in the pre-trained GloVe model. These word vectors are then collected into a list. Finally, the mean (average) of all these word vectors is calculated, creating a single vector representation (embedding of 200 dimensions) that captures the semantic content of the entire text in the "tags" variable.
