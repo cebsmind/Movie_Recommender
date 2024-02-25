@@ -10,5 +10,32 @@ About the data set :
 - **keywords.csv**: Contains the movie plot keywords for our MovieLens movies. Available in the form of a stringified JSON Object.
 - **credits.csv:** Consists of Cast and Crew Information for all our movies. Available in the form of a stringified JSON Object.
 # Code Walkthrough & Explanation
-## 1. Pre-process
+## 1. Variables 
+For this project, I decied to go with a simple approach with basic informations from the movie :
+- **id** : Unique ID of the movie
+- **original_title**: Title
+- **overview**: Synopsis of the movie
+- **genres**: The genres types of the movie (can be multiple)
+- **keywords**: Contains the movie plot keywords
+- **cast**: Refers to the list of actors and actresses who play roles in the movie.
+- **crew**: Refers to the team of individuals involved in the production of the movie, excluding the cast. This includes various roles such as the director, producer, cinematographer, editor, and other behind-the-scenes contributors. The crew is responsible for the technical and creative aspects of filmmaking.
+- **vote_average**: Numerical variable (from 1 to 5)
+- **popularity**: Popularity of the movie
+### All theses informations will be used to build our model. But before that we need to treat all theses variables and pre-process it
+## 2. Pre-processing
+Pre processing is an important step to build an accurate model. 
+In our case, we need to harmonize categorical variables so we can merge them into one variable, that we name "tags".
+movies['tags'] = movies['overview'] + movies['genres'] + movies['keywords'] + movies['cast'] + movies['crew']
+For our numerical variables "vote_average" and "popularity", we'll deal with it after.
+## Example Output from Notebook
+
+Explanation of the code or analysis.
+
+```python
+# Your code here
+result = some_function()
+print(result)
+
+
+
 
