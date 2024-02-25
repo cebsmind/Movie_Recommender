@@ -1,5 +1,5 @@
 # PROJECT : Movie Recommendation System
-The goal of this project is to create a Movie Recommendation System using content-based filtering & build an app using our model using Flask
+The goal of this project is to create a Movie Recommendation System using content-based filtering & build an app with **Flask**
 
 # App preview
 ![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/MainPage.png?raw=true)
@@ -15,7 +15,8 @@ About the data set :
 - **credits.csv:** Consists of Cast and Crew Information for all our movies. Available in the form of a stringified JSON Object.
 # Code Walkthrough & Explanation
 ## 1. Variables 
-For this project, I decied to go with a simple approach with basic informations from the movie :
+In this project, I opted for a straightforward approach, focusing on fundamental movie details:
+
 - **id** : Unique ID of the movie
 - **original_title**: Title
 - **overview**: Synopsis of the movie
@@ -25,7 +26,8 @@ For this project, I decied to go with a simple approach with basic informations 
 - **crew**: Refers to the team of individuals involved in the production of the movie, excluding the cast. This includes various roles such as the director, producer, cinematographer, editor, and other behind-the-scenes contributors. The crew is responsible for the technical and creative aspects of filmmaking.
 - **vote_average**: Numerical variable (from 1 to 5)
 - **popularity**: Popularity of the movie
-### All theses informations will be used to build our model. But before that we need to treat all theses variables and pre-process it
+### Utilization in Model Building
+All these details are integral for constructing our model. However, before proceeding with model development, it's essential to preprocess and treat these variables appropriately.
 ## 2. Data Pre-processing
 Effective model building relies on thorough pre-processing to enhance accuracy. In our context, this involves:
 In our case, it implies :
