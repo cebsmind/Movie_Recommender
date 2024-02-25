@@ -165,10 +165,10 @@ This function efficiently calculates the cosine similarity of a specified movie 
 
 # Set up APP
 
-### To run the app you need 
-- Download Kaggle Data Set
-- Run my Notebooks to get the `movie_cosine_similarity_model.pkl`
-- Set up folders : Below is the suggested folder structure for organizing your Flask app
+## To run the app you need 
+#### 1. Download Kaggle Data Set
+#### 2. Run my Notebooks to get the `movie_cosine_similarity_model.pkl`
+#### 3. Set up folders : Below is the suggested folder structure for organizing your Flask app
 
 ```plaintext
 flask-app/
@@ -198,3 +198,11 @@ flask-app/
 ├── .gitignore.txt
 ├── .gcloudignore
 └── README.md
+```
+#### 4. Install dependencies 
+- `python -m venv env`
+- `.env/Scripts/activate`
+- `pip install -r requirements.txt`
+#### 5. you can run the chatbot in terminal or in local host->
+- `python app.py`
+- open http://127.0.0.1:5000/
