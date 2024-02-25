@@ -1,5 +1,10 @@
 # PROJECT : Movie Recommendation System
 The goal of this project is to create a Movie Recommendation System using content-based filtering
+
+# Preview
+![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/MainPage.png?raw=true)
+
+
 ## How it works ? 
 Content-based filtering uses item features to recommend other items similar to what the user likes, based on their previous actions or explicit feedback
 ![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/ContentBasedFiltering.png?raw=true)
@@ -60,7 +65,7 @@ After we finally have vectorized our "tags" variable, we can add our numerical v
 The features 'vote_average' and 'popularity' are being normalized using Min-Max scaling. Min-Max scaling transforms the values of a feature to a range between 0 and 1, based on the minimum and maximum values of that feature in the dataset. The MinMaxScaler is used for this purpose.
 #### The final shape will be (46628, 202)
 
-## Basic example to understand Word Embedding using Glove Pre-trained model : 
+## 2.B Basic example to understand Word Embedding using Glove Pre-trained model : 
 Let's go through a simple example to illustrate how the GloVe model works. Suppose we have the following preprocessed and tokenized text:
 
 ```python
@@ -105,10 +110,39 @@ In our simplified example, the mean vector would be:
 doc_vector = [0.38, 0.48, 0.58]
 ```
 
-# Recommend Movies
+## 4. Recommend Movies
 Once we finally have our vectorized data, we can finally recommend movies using **cosine similarity**
-## What is Cosine Similarity ?
+###  What is Cosine Similarity ?
 Cosine similarity measures the cosine of the angle between two vectors. For word embeddings, the vectors represent the semantic meaning of words in a high-dimensional space. Cosine similarity ranges from -1 to 1, with 1 indicating identical vectors, 0 indicating no similarity, and -1 indicating opposite vectors.
 ![image](https://github.com/cebsmind/Movie_Recommender/assets/154905924/14fcec43-a4ef-4364-b235-bbaf1a32880a)
 
+Our goal is to calculate the cosine similarity matrix of each movie.
+### An example of how it will looks like 
+![image](https://github.com/cebsmind/Movie_Recommender/assets/154905924/69a7eda3-0f5f-4048-87ae-937607e1dd66)
 
+For each movie, we obtain the cosine similarity for every movie, and the more the score is close to 1, the more is similar. The movie itself will have a score of 1 so we need to recomment the top movies excluding himself using this matrix.
+
+We can easily define a function that take 2 parameters : 
+- the 'Title' of the movie
+- number of movie to recommend
+
+Where we calculate the cosine similarity of this particular movie, and find the top n movie similar using the cosine matrix.
+
+```python
+# Example: Get top 10 movie recommendations for a movie titled 'Spider-Man'
+recommend_top_movies('Spider-Man', top_n=10)
+```
+
+We get :
+```python
+['Spider-Man 3',
+ 'Doctor Strange',
+ 'Spider-Man 2',
+ 'X-Men: The Last Stand',
+ 'Superman/Batman: Apocalypse',
+ 'Batman Returns',
+ 'Look, Up in the Sky: The Amazing Story of Superman',
+ 'The Amazing Spider-Man',
+ 'Iron Man',
+ 'Guardians of the Galaxy Vol. 2']
+```
