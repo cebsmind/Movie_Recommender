@@ -1,5 +1,5 @@
 # PROJECT : Movie Recommendation System
-The goal of this project is to create a Movie Recommendation System using content-based filtering
+The goal of this project is to create a Movie Recommendation System using content-based filtering & Develop an app using our model
 
 # Preview
 ![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/MainPage.png?raw=true)
