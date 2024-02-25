@@ -163,7 +163,38 @@ We get :
 ```
 This function efficiently calculates the cosine similarity of a specified movie and suggests the top N similar movies based on the cosine matrix.
 
+# Set up APP
 
+### To run the app you need 
+- Download Kaggle Data Set
+- Run my Notebooks to get the `movie_cosine_similarity_model.pkl`
+- Set up folders : Below is the suggested folder structure for organizing your Flask app:
 
-
-
+```plaintext
+flask-app/
+│
+├── data/
+│   └── preprocessed_data.csv
+│
+├── models/
+│   └── movie_cosine_similarity_model.pkl
+│
+├── static/
+│   ├── css/
+│   │   ├── rain.css
+│   │   ├── recommendations.css
+│   │   └── style.css
+│   │
+│   └── js/
+│       ├── AutoComplete.js
+│       └── rain.js
+│
+├── templates/
+│      ├── index.html
+│      └── recommendations.html
+│
+├── app.py
+├── requirements.txt
+├── .gitignore.txt
+├── .gcloudignore
+└── README.md
