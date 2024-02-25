@@ -67,12 +67,10 @@ Upon completion, we obtain a numpy array with dimensions (46628, 200):
 ### Incorporating Numeric Variables
 After vectorizing our "tags" variable, we proceed to augment our feature set by introducing numeric variables (**'vote_average'** and **'popularity'**). However, an essential preprocessing step precedes this:
 
-**Normalization**
+### Normalization
 The features 'vote_average' and 'popularity' undergo normalization using Min-Max scaling. This transformation adjusts the values of a feature to a standardized range between 0 and 1, determined by the minimum and maximum values within the dataset. The MinMaxScaler is employed for this purpose.
 
 Upon completion of this process, our feature matrix attains a final shape of (46628, 202). This combined feature set incorporates both the vectorized "tags" variable and the normalized numeric variables, creating a comprehensive representation for each movie in the dataset.
-
-
 
 
 ## 2.B Basic example to understand Word Embedding using Glove Pre-trained model : 
@@ -121,23 +119,24 @@ doc_vector = [0.38, 0.48, 0.58]
 ```
 
 ## 4. Recommend Movies
-Once we finally have our vectorized data, we can finally recommend movies using **cosine similarity**
-###  What is Cosine Similarity ?
-Cosine similarity measures the cosine of the angle between two vectors. For word embeddings, the vectors represent the semantic meaning of words in a high-dimensional space. Cosine similarity ranges from -1 to 1, with 1 indicating identical vectors, 0 indicating no similarity, and -1 indicating opposite vectors.
+After successfully vectorizing our data, the next exciting step is movie recommendations, facilitated by **cosine similarity**.
+
+###  Understanding Cosine Similarity
+Cosine similarity quantifies the cosine of the angle between two vectors. In the realm of word embeddings, these vectors encapsulate the semantic meaning of words in a multi-dimensional space. The metric ranges from -1 to 1, with 1 denoting identical vectors, 0 implying no similarity, and -1 indicating opposite vectors.
 ![image](https://github.com/cebsmind/Movie_Recommender/assets/154905924/14fcec43-a4ef-4364-b235-bbaf1a32880a)
 
-Our goal is to calculate the cosine similarity matrix of each movie.
-### An example of how it will looks like 
+Our objective is to compute the cosine similarity matrix for each movie.
+
+### Visualizing the Cosine Similarity Matrix
 ![image](https://github.com/cebsmind/Movie_Recommender/assets/154905924/69a7eda3-0f5f-4048-87ae-937607e1dd66)
 
-For each movie, we obtain the cosine similarity for every movie, and the more the score is close to 1, the more is similar. The movie itself will have a score of 1 so we need to recomment the top movies excluding himself using this matrix.
+For every movie, we calculate the cosine similarity with every other movie. A score closer to 1 indicates higher similarity. The movie itself will have a score of 1, necessitating the exclusion of the movie when recommending similar ones using this matrix.
 
-We can easily define a function that take 2 parameters : 
-- the 'Title' of the movie
-- number of movie to recommend
+To streamline the process, a function is defined with two parameters:
+- The 'Title' of the movie
+- The number of movies to recommend.
 
-Where we calculate the cosine similarity of this particular movie, and find the top n movie similar using the cosine matrix.
-
+Example usage
 ```python
 # Example: Get top 10 movie recommendations for a movie titled 'Spider-Man'
 recommend_top_movies('Spider-Man', top_n=10)
@@ -156,3 +155,9 @@ We get :
  'Iron Man',
  'Guardians of the Galaxy Vol. 2']
 ```
+This function efficiently calculates the cosine similarity of a specified movie and suggests the top N similar movies based on the cosine matrix.
+
+
+
+
+
