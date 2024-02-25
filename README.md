@@ -51,7 +51,16 @@ For each token, we checks if it is present in the pre-trained GloVe model. If th
 ### 3. Aggregation - Mean Calculation:
 After collecting all the word vectors for the tokens present in the GloVe model, the code calculates the mean (average) of these vectors. This mean vector serves as a representation of the entire text in the "tags" variable.
 
-### Basic example to understand : 
+In the end, we get a numpy array of dimension (46628, 200) 
+- **46628** is the number of movies (assuming that each movie has a corresponding "tags").
+- **200** is the dimensionality of the word vectors in your pre-trained GloVe model.
+
+### Add numeric variable
+After we finally have vectorized our "tags" variable, we can add our numerical variables ('vote_average' and 'popularity'). But before we need to Normalize it : 
+The features 'vote_average' and 'popularity' are being normalized using Min-Max scaling. Min-Max scaling transforms the values of a feature to a range between 0 and 1, based on the minimum and maximum values of that feature in the dataset. The MinMaxScaler is used for this purpose.
+#### The final shape will be (46628, 202)
+
+## Basic example to understand Word Embedding using Glove Pre-trained model : 
 Let's go through a simple example to illustrate how the GloVe model works. Suppose we have the following preprocessed and tokenized text:
 
 ```python
@@ -69,7 +78,7 @@ glove_model = {
     "characters": [0.5, 0.6, 0.7]
 }
 ```
-In a real-world scenario, the vectors would be much larger (e.g., 50, 100, 200 dimensions), but we are simplifying for this example.
+In a real-world scenario, the vectors would be much larger (in our case we have 200 dimensions), but we are simplifying for this example.
 
 Now, let's apply the GloVe model to our tokens list:
 ```python
@@ -96,6 +105,10 @@ In our simplified example, the mean vector would be:
 doc_vector = [0.38, 0.48, 0.58]
 ```
 
-In the end, we get a numpy array of dimension (46628, 200) 
-- **46628** is the number of movies (assuming that each movie has a corresponding "tags").
-- **200** is the dimensionality of the word vectors in your pre-trained GloVe model.
+# Recommend Movies
+Once we finally have our vectorized data, we can finally recommend movies using **cosine similarity**
+## What is Cosine Similarity ?
+Cosine similarity measures the cosine of the angle between two vectors. For word embeddings, the vectors represent the semantic meaning of words in a high-dimensional space. Cosine similarity ranges from -1 to 1, with 1 indicating identical vectors, 0 indicating no similarity, and -1 indicating opposite vectors.
+![image](https://github.com/cebsmind/Movie_Recommender/assets/154905924/14fcec43-a4ef-4364-b235-bbaf1a32880a)
+
+
