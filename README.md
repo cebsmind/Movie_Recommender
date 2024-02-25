@@ -197,6 +197,6 @@ flask-app/
 - `python -m venv env`
 - `.env/Scripts/activate`
 - `pip install -r requirements.txt`
-#### 5. you can run in terminal 
+#### 5. Run in terminal 
 - `python main.py`
 - open http://127.0.0.1:5000/
