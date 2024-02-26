@@ -27,10 +27,9 @@ In this project, I opted for a straightforward approach, focusing on fundamental
 - **vote_average**: Numerical variable (from 1 to 5)
 - **popularity**: Popularity of the movie
 ### Utilization in Model Building
-All these details are integral for constructing our model. However, before proceeding with model development, it's essential to preprocess and treat these variables appropriately.
+All these parameters are essentials for constructing our model. However, before proceeding with model development, it's necessary to preprocess and treat these variables appropriately.
 ## 2. Data Pre-processing
 Effective model building relies on thorough pre-processing to enhance accuracy. In our context, this involves:
-In our case, it implies :
 - **Transforming Variables:** Adjusting variables to better suit model requirements.
 - **Cleaning Text Variables:** Ensuring text data is free from noise and inconsistencies.
 - **Imputing Missing Values:** Addressing any gaps in the dataset.
