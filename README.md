@@ -6,7 +6,7 @@ Content-based filtering uses item features to recommend other items similar to w
 ![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/ContentBasedFiltering.png?raw=true)
 
 # App preview
-![alt text]()
+![alt text](https://github.com/cebsmind/Movie_Recommender/blob/main/images/AppPreview2.png?raw=true)
 
 # Data set Information :
 ### [Data Link from Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
