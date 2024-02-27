@@ -52,10 +52,21 @@ Handling numerical variables will be addressed subsequently in our process.
 For our case, we decided to use a pre-trained GloVe (Global Vectors for Word Representation) model. GloVe is an unsupervised learning algorithm that generates word embeddings based on the co-occurrence statistics of words in a large corpus. The model we loaded has 200-dimensional word vectors.
 
 ## Let's break it down step by step:
-### 1. Tokenization and Preprocessing:
+### 1. Tokenization and Preprocessing: 
+Tokenization is the process of breaking down a text into smaller units, called tokens. Tokens are the building blocks of natural language processing, and they can be words, subwords, or even characters, depending on the level of granularity desired. The goal of tokenization is to make it easier to analyze and process textual data.
+#### Example : 
+```python
+#Original sentence
+"The quick brown fox jumps over the lazy dog."
+```
+```python
+#Word Tokens
+['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog', '.']
+```
+
 Our text in the "tags" variable is tokenized, and common preprocessing steps like lowercasing and lemmatization are applied to each token.
 ### 2. Word Vector Lookup:
-For each token, we checks if it is present in the pre-trained GloVe model. If the word is in the model, its corresponding word vector is retrieved, and this vector is added to a list..
+For each token of each "tags", we checks if it is present in the pre-trained GloVe model. If the word is in the model, its corresponding word vector is retrieved, and this vector is added to a list.
 ### 3. Aggregation - Mean Calculation:
 After collecting all the word vectors for the tokens present in the GloVe model, the code calculates the mean (average) of these vectors. This mean vector serves as a representation of the entire text in the "tags" variable.
 
@@ -118,7 +129,7 @@ doc_vector = [0.38, 0.48, 0.58]
 ```
 
 ## 4. Recommend Movies
-After successfully vectorizing our data, the next exciting step is movie recommendations, facilitated by **cosine similarity**.
+After successfully vectorizing our data, the next exciting step is movie recommendations, done by **cosine similarity**.
 
 ###  Understanding Cosine Similarity
 Cosine similarity quantifies the cosine of the angle between two vectors. In the realm of word embeddings, these vectors encapsulate the semantic meaning of words in a multi-dimensional space. The metric ranges from -1 to 1, with 1 denoting identical vectors, 0 implying no similarity, and -1 indicating opposite vectors.
